@@ -1,0 +1,51 @@
+/* media query*/
+@media screen and (max-width: 768px){
+  .grid-container{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .sidebar_right-itens{
+    padding: 32px 0;
+  }
+  
+  .sidebar_right-itens img{
+    display: none;
+  }
+  
+  .sidebar_right_result{
+    max-width: 100%;
+  }
+  .sidebar_right_result p{
+    margin-top: 30px;
+    font-size: 24px;
+   
+  
+  }
+   
+   .btn-copiar {
+    max-width: 100%;
+   }
+  }
+  
+   @media screen and (max-width: 375px){
+  
+    .grid-container{
+      gap:64px
+    }
+    .btn{
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar_right_result p{
+      margin-top: 30px;
+      font-size: 24px;
+      
+    }
+    .btn-copiar {
+      max-width: 100%;
+     }
+   }
