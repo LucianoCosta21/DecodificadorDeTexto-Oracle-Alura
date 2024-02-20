@@ -1,12 +1,12 @@
-let cripto = document.querySelector('.btn-cripto');
-let descript = document.querySelector('.btn-descript');
-let text = document.getElementById('textarea');
-let info = document.querySelector('.sidebar_right-itens');
-let sidebarText = document.querySelector('.sidebar_right_result');
-let textCript = document.querySelector('.sidebar_right_result-text');
-let btnCopiar = document.querySelector('.btn-copiar');
+const cripto = document.querySelector('.btn-cripto');
+const descript = document.querySelector('.btn-descript');
+const text = document.querySelector('.textarea');
+const info = document.querySelector('.sidebar_right-itens');
+const sidebarText = document.querySelector('.sidebar_right_result');
+const textCript = document.querySelector('.sidebar_right_result-text');
+const btnCopiar = document.querySelector('.btn-copiar');
 
-let criptografar = {
+const criptografar = {
   e: 'enter',
   i: 'imes',
   a: 'ai',
@@ -16,22 +16,24 @@ let criptografar = {
 
 // criptografar
 
-cripto.addEventListener('click', () => {
+function encrypt() {
   info.classList.add('hidden');
   sidebarText.classList.remove('hidden');
-  let result = text.value;
-  let letrasMinuscula = result.toLowerCase();
+  const result = text.value;
+  const letrasMinuscula = result.toLowerCase();
 
-  let newStr = letrasMinuscula.replace(/e|i|a|o|u/gi, (matched) => {
+  const newStr = letrasMinuscula.replace(/e|i|a|o|u/gi, (matched) => {
     return criptografar[matched];
   });
 
   textCript.innerHTML = newStr;
   text.value = '';
-});
+}
+
+cripto.addEventListener('click', encrypt);
 
 //Descriptografar
-let descriptografar = {
+const descriptografar = {
   enter: 'e',
   imes: 'i',
   ai: 'a',
@@ -39,40 +41,24 @@ let descriptografar = {
   ufat: 'u',
 };
 
-descript.addEventListener('click', () => {
+function decrypt() {
   text.value = '';
   info.classList.remove('hidden');
   sidebarText.classList.add('hidden');
-  let result2 = textCript.innerText;
+  const result2 = textCript.innerText;
 
-  let newStr2 = result2.replace(/enter|imes|ai|ober|ufat/gi, (matched) => {
+  const newStr2 = result2.replace(/enter|imes|ai|ober|ufat/gi, (matched) => {
     return descriptografar[matched];
   });
-  console.log(newStr2);
   text.value = newStr2;
-  console.log(text);
-});
+}
+
+descript.addEventListener('click', decrypt);
 
 // botão copiar
 
-btnCopiar.addEventListener('click', () => {
+function copyButton() {
   navigator.clipboard.writeText(textCript.innerText);
-});
-
-/*
-let str = 'I have a Lenovo Laptop, a Honor Phone, and a Samsung Tab.';
-let Obj = {
-  Lenovo: 'Dell',
-  Honor: 'OnePlus',
-  Samsung: 'Lenovo',
-};
-
-function GFG_Fun() {
-  console.log(
-    str.replace(/Lenovo|Honor|Samsung/gi, function (matched) {
-      return Obj[matched];
-    }),
-  );
 }
-GFG_Fun();
- */
+
+btnCopiar.addEventListener('click', copyButton);

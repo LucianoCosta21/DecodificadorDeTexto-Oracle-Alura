@@ -3,9 +3,13 @@
   .grid-container{
     display: flex;
     flex-direction: column;
+    margin: 240px 40px 40px 40px;
     padding: 40px;
     box-sizing: border-box;
-    width: 100%;
+    max-width: 100%;
+  }
+  .textarea{
+    margin: 0;
   }
   
   .sidebar_right-itens{
@@ -32,8 +36,12 @@
   }
   
    @media screen and (max-width: 375px){
-  
+    .logo{
+      left: -25px;      
+    }
     .grid-container{
+      margin: 156px 16px 40px 16px;
+      padding: 0;
       gap:64px
     }
     .btn{
